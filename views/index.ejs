@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+            background-color: #C7E4D9;
+            color: black;
+            font-family: 'Alegreya Sans SC', sans-serif;
+        }
+    </style>
+    <link type="text/css" ref="stylesheet" href="public/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Pilates Exercises</h1>
+    <ul>
+        <% for(let i = 0; i < exercisesList.length; i++){ %>
+            <li>
+                <a href="/exercises/<%=exercisesList[i].id%>">
+                    <%=exercisesList[i].name%>
+                </a>
+                <form method="POST" action="/exercises/<%=exercisesList[i].id%>?_method=DELETE">
+                    <input type="submit" value="DELETE" />
+                </form>
+                <a href="/exercises/<%=exercisesList[i].id%>/edit">EDIT</a>
+            </li>
+            <br/>
+            <% } %>
+    </ul>
+    <nav>
+        <a href="/exercises/new">Add a New Exercise</a>
+    </nav>
+</body>
+
+</html>

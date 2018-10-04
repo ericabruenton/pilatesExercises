@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        body {
+            background-color: #C7E4D9;
+            color: black;
+            font-family: 'Alegreya Sans SC', sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+</head>
+
+<body>
+    <h1>New Exercise Page</h1>
+    <form action="/exercises" method="POST">
+        Name:
+        <input type="text" name="name" />
+        <br/> Level:
+        <input type="text" name="level" />
+        <br/> Apparatus:
+        <input type="text" name="apparatus" />
+        <br/> Description:
+        <input type="text" name="description" />
+        <br/> Certifying Body:
+        <input type="text" name="certifying_body" />
+        <br/>
+        <input type="submit" value="Add Exercise" />
+    </form>
+</body>
+
+</html>

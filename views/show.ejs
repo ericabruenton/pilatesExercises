@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+            background-color: #C7E4D9;
+            color: black;
+            font-family: 'Alegreya Sans SC', sans-serif;
+        }
+    </style>
+    <link type="text/css" ref="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Exercise Details</h1>
+    <a href="/exercises">EXERCISES</a>
+    <h3>Name:
+        <%= exercisesList.name %>
+    </h3>
+    <br/>
+    <h2>Level:
+        <%= exercisesList.level %>
+    </h2>
+    <br>
+    <h2>Apparatus:
+        <%=exercisesList.apparatus%>
+    </h2>
+    <br/>
+    <h2>Description:
+        <%=exercisesList.description%>
+    </h2>
+    <br>
+    <h2>Certifying Body:
+        <%=exercisesList.certifying_body%>
+    </h2>
+    <br>
+
+</body>
+
+</html>
