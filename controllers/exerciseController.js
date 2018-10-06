@@ -3,7 +3,7 @@ const router = express.Router();
 const Exercises = require("../models/exerciseSchema.js");//schema
 
 router.get('/', (req, res) => {
-    Exerises.find({}, (err, allExercises) => {
+    Exercises.find({}, (err, allExercises) => {
         if (err) {
             res.send(err);
         } else {
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 router.post("/", (req, res) => {
 
     //CREATE "router" goes above the NEW route
-    exercises.create(req.body, (err, createdExercise) => {
+    Exercises.create(req.body, (err, createdExercise) => {
         if (err) {
             console.log(err)
             res.send(err)
@@ -37,7 +37,7 @@ router.get("/new", (req, res) => {
 
 //EDIT route
 router.get("/:id/edit", (req, res) => {
-    exercises.findById(req.params.id, (err, foundExercise) => {
+    Exercises.findById(req.params.id, (err, foundExercise) => {
         res.render("edit.ejs", {
             "exercisesList": foundExercise
         });
@@ -47,7 +47,7 @@ router.get("/:id/edit", (req, res) => {
 //SHOW route
 router.get("/:id", (req, res) => {
     console.log("**show route**")
-    exercises.findById(req.params.id, (err, foundExercise) => {
+    Exercises.findById(req.params.id, (err, foundExercise) => {
         if (err) {
             console.log(err)
         }
@@ -58,7 +58,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-    exercises.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedExercise) => {
+    Exercises.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedExercise) => {
         if (err) {
             res.send(err);
         } else {
@@ -70,7 +70,7 @@ router.put("/:id", (req, res) => {
 
 //create a delete route
 router.delete("/:id", (req, res) => {
-    exercises.findByIdAndRemove(req.params.id, (err, deletedExercise) => {
+    Exercises.findByIdAndRemove(req.params.id, (err, deletedExercise) => {
         if (err) {
             console.log(err, "this is an error in delete")
             res.send(err);
