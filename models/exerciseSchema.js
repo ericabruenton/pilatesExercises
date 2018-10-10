@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 
 const exerciseSchema = mongoose.Schema({
 
+    name: String,
     apparatus: String,
     level: String,
-    name: String,
     description: String,
     certifying_body: String
 });

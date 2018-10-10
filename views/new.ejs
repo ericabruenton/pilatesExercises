@@ -33,40 +33,40 @@
         <h1>New Exercise Page</h1>
         <form action="/exercises" method="POST">
             <div class="form-group">
+                <label for="name" class="control-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Exercise Name" value="<%exercises.name%>" />
+            </div>
+            <div class="form-group">
                 <label for="apparatus">Apparatus</label>
-                <select class="form-control" id="apparatus">
-                    <option>Mat</option>
-                    <option>Reformer</option>
-                    <option>Chair</option>
-                    <option>Cadillac</option>
+                <select class="form-control" id="apparatus" name="apparatus">
+                    <option value="Mat">Mat</option>
+                    <option value="Reformer">Reformer</option>
+                    <option value="Chair">Chair</option>
+                    <option value="Cadillac">Cadillac</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="level">Level</label>
-                <select class="form-control" id="level">
-                    <option>Beginner/Foundations</option>
-                    <option>Intermediate</option>
-                    <option>Advanced</option>
-                    <option>Super Advanced</option>
+                <select class="form-control" id="level" name="level">
+                    <option value="Beginner/Foundations">Beginner/Foundations</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                    <option value="Super Advanced">Super Advanced</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Exercise Name">
+                <label for="description" class="control-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
             </div>
             <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" id="description" rows="3"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="certification">Certifying Body</label>
-                <select class="form-control" id="certification">
-                    <option>Peak Pilates</option>
-                    <option>Stott</option>
-                    <option>Balanced Body</option>
-                    <option>BASI</option>
-                    <option>DLP</option>
-                    <option>Pilates Center of Boulder</option>
+                <label for="certifying_body">Certifying Body</label>
+                <select class="form-control" id="certifying_body" name="certifying_body">
+                    <option value="Peak Pilates">Peak Pilates</option>
+                    <option value="Stott">Stott</option>
+                    <option value="Balanced Body">Balanced Body</option>
+                    <option value="BASI">BASI</option>
+                    <option value="DLP">DLP</option>
+                    <option value="Pilates Center of Boulder">Pilates Center of Boulder</option>
                 </select>
             </div>
             <input class="btn btn-secondary" type="submit" value="Add Exercise" />

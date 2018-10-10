@@ -2,44 +2,82 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title></title>
-    <style type="text/css">
-        body {
-            background-color: #C7E4D9;
-            color: black;
-            font-family: 'Alegreya Sans SC', sans-serif;
-        }
-    </style>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="public/css/style.css">
-
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
+    <title>Edit Exercise</title>
 </head>
 
 <body>
-    <h1>Edit Exercise Page</h1>
-    <form method="POST" action="/exercises/<%=exercisesList.id%>?_method=PUT">
-        Name:
-        <input type="text" name="name" value="<%=exercisesList.name%>" />
-        <br/> Level:
-        <input type="text" name="level" value="<%=exercisesList.level%>" />
-        <br/> Apparatus:
-        <input type="text" name="apparatus" value="<%=exercisesList.apparatus%>" />
-        <br/> Description:
-        <input type="textarea" name="description" value="<%=exercisesList.description%>" />
-        <br/> Certifying Body:
-        <input type="text" name="certifying_body" value="<%=exercisesList.certifying_body%>" />
-        <br/>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <a class="navbar-brand" href="#">Pilates Exercises</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="/exercises">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+            </div>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-white my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="body">
+        <h1>Edit Exercise Page</h1>
+        <form method="POST" action="/exercises/<%=exercisesList.id%>?_method=PUT">
+            <div class="form-group">
+                <label for="name" class="control-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Exercise Name" value="<%exercisesList.name%>"
+                />
+            </div>
+            <div class="form-group">
+                <label for="apparatus">Apparatus</label>
+                <select class="form-control" id="apparatus" name="apparatus">
+                    <option value="Mat">Mat</option>
+                    <option value="Reformer">Reformer</option>
+                    <option value="Chair">Chair</option>
+                    <option value="Cadillac">Cadillac</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="level">Level</label>
+                <select class="form-control" id="level" name="level">
+                    <option value="Beginner/Foundations">Beginner/Foundations</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Advanced">Advanced</option>
+                    <option value="Super Advanced">Super Advanced</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="description" class="control-label">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="certifying_body">Certifying Body</label>
+                <select class="form-control" id="certifying_body" name="certifying_body">
+                    <option value="Peak Pilates">Peak Pilates</option>
+                    <option value="Stott">Stott</option>
+                    <option value="Balanced Body">Balanced Body</option>
+                    <option value="BASI">BASI</option>
+                    <option value="DLP">DLP</option>
+                    <option value="Pilates Center of Boulder">Pilates Center of Boulder</option>
+                </select>
+            </div>
 
-        <input type="submit" value="Submit Changes" />
-    </form>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
+            <input type="submit" value="Submit Changes" />
+        </form>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
 </body>
 
 </html>

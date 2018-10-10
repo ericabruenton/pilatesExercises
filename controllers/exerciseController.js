@@ -1,70 +1,96 @@
 const express = require("express");
 const router = express.Router();
-const Exercises = require("../models/exerciseSchema.js");//schema
+const Exercises = require("../models/exerciseSchema.js");
 
-router.get('/', (req, res) => {
-    Exercises.find({}, (err, allExercises) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.render("index.ejs", {
-                "exercisesList": allExercises
-            })
-        }
-    });
+router.get('/', async (req, res) => {
+    try {
+        const allExercises = await Exercises.find({});
+        res.render("index.ejs", {
+            "exercisesList": allExercises
+        });
+    } catch (err) {
+        res.send(err);
+    }
 });
 
-// POST route this is the route that the form is sending its info to (the CREATE route) request object is information being sent to the server
-// contents of the form will be in req.body
+// CREATE route
 router.post("/", (req, res) => {
+    Exercises.create({
+        name: req.body.name,
+        apparatus: req.body.apparatus,
+        level: req.body.level,
+        description: req.body.description,
+        certifying_body: req.body.certifying_body,
 
-    //CREATE "router" goes above the NEW route
-    Exercises.create(req.body, (err, createdExercise) => {
+    }, (err, createdExercise) => {
         if (err) {
             console.log(err)
             res.send(err)
         } else {
             console.log(createdExercise)
+            console.log(req.body.name, req.body.apparatus, req.body.level, req.body.description, req.body.certifying_body)
             res.redirect("/exercises");
         }
     });
 });
 
 //NEW route
-router.get("/new", (req, res) => {
-    res.render("new.ejs");
+router.get("/new", async (req, res) => {
+    try {
+        const foundExercise = await Exercises.find({});
+        res.render("new.ejs", {
+            exercises: foundExercise,
+        });
+    } catch (err) {
+        res.send(err);
+    }
 });
 
 //EDIT route
-router.get("/:id/edit", (req, res) => {
-    Exercises.findById(req.params.id, (err, foundExercise) => {
+router.get("/:id/edit", async (req, res) => {
+    try {
+        const foundExercise = await Exercises.findById(req.params.id);
         res.render("edit.ejs", {
             "exercisesList": foundExercise
         });
-    });
+    } catch (err) {
+        res.send(err);
+    }
 });
 
 //SHOW route
-router.get("/:id", (req, res) => {
-    console.log("**show route**")
-    Exercises.findById(req.params.id, (err, foundExercise) => {
-        if (err) {
-            console.log(err)
-        }
+router.get("/:id/show", async (req, res) => {
+    try {
+        const foundExercise = await Exercises.findById(req.params.id);
+        console.log(foundExercise + "this is foundExercise")
+        console.log(req.params.id + "this is req.params")
+
         res.render("show.ejs", {
             "exercisesList": foundExercise
         });
-    });
+    } catch (err) {
+        res.send(err);
+    }
 });
 
+//Update Route
 router.put("/:id", (req, res) => {
-    Exercises.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedExercise) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.redirect("/exercises");
-        }
-    });
+    Exercises.findByIdAndUpdate(req.params.id,
+        {
+            name: req.body.name,
+            apparatus: req.body.apparatus,
+            level: req.body.level,
+            description: req.body.description,
+            certifying_body: req.body.certifying_body
+        },
+        { new: true }, (err, updatedExercise) => {
+            if (err) {
+                res.send(err);
+            } else {
+                console.log(updatedExercise, "this is the updatedExercise")
+                res.redirect("/exercises");
+            }
+        });
 });
 
 

@@ -12,27 +12,41 @@
 <body>
     <div class="body">
         <h1>Pilates Exercises</h1>
-        <ul>
-            <% for(let i = 0; i < exercisesList.length; i++){ %>
-                <li>
-                    <a href="/exercises/<%=exercisesList[i].id%>">
-                        <%=exercisesList[i].apparatus%>
-                            <%=exercisesList[i].level%>
-                                <%=exercisesList[i].name%>
-                                    <%=exercisesList[i].description%>
-                                        <%=exercisesList[i].certifying_body%>
-                    </a>
-                    <form method="POST" action="/exercises/<%=exercisesList[i].id%>?_method=DELETE">
-                        <input type="submit" value="DELETE" />
-                    </form>
-                    <a href="/exercises/<%=exercisesList[i].id%>/edit">EDIT</a>
-                </li>
-                <br/>
-                <% } %>
-        </ul>
         <nav>
             <a href="/exercises/new">Create Exercise</a>
         </nav>
+        <div class="card w-50">
+            <div class="card-body">
+                <p class="card-text">
+                    <% for(let i = 0; i < exercisesList.length; i++){ %>
+                        Exercise Name:
+                        <a href="/exercises/<%=exercisesList[i].id%>">
+                            <%=exercisesList[i].name%>
+                        </a>
+                        </br>
+                        Apparatus:
+                        <%=exercisesList[i].apparatus%>
+                            </br>
+                            Level:
+                            <%=exercisesList[i].level%>
+                                </br>
+                                Description:
+                                <%=exercisesList[i].description%>
+                                    </br>
+                                    Certifying Body:
+                                    <%=exercisesList[i].certifying_body%>
+                </p>
+                <a href="/exercises/<%=exercisesList[i].id%>/edit">
+                    <button class="btn btn-secondary" type="submit">EDIT</button>
+                </a>
+                <form method="POST" action="/exercises/<%=exercisesList[i].id%>?_method=DELETE">
+                    <input class="btn btn-secondary" type="submit" value="DELETE" />
+                </form>
+                <% } %>
+            </div>
+            </br>
+        </div>
+        </br>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
