@@ -5,13 +5,13 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Guntur" rel="stylesheet">
     <title>Edit Exercise</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-        <a class="navbar-brand" href="#">Pilates Exercises</a>
+        <a class="navbar-brand" href="/exercises">Pilates Exercises</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -32,12 +32,12 @@
         <h1>Edit Exercise Page</h1>
         <form method="POST" action="/exercises/<%=exercisesList.id%>?_method=PUT">
             <div class="form-group">
-                <label for="name" class="control-label">Name</label>
+                <label for="name" class="control-label">Name:</label>
                 <input type="text" class="form-control" id="name" name="name" placeholder="Exercise Name" value="<%exercisesList.name%>"
                 />
             </div>
             <div class="form-group">
-                <label for="apparatus">Apparatus</label>
+                <label for="apparatus">Apparatus:</label>
                 <select class="form-control" id="apparatus" name="apparatus">
                     <option value="Mat">Mat</option>
                     <option value="Reformer">Reformer</option>
@@ -46,7 +46,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="level">Level</label>
+                <label for="level">Level:</label>
                 <select class="form-control" id="level" name="level">
                     <option value="Beginner/Foundations">Beginner/Foundations</option>
                     <option value="Intermediate">Intermediate</option>
@@ -55,11 +55,15 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="description" class="control-label">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                <label for="description" class="control-label">Description:</label>
+                <textarea class="form-control" id="description" name="description" rows="6"></textarea>
             </div>
             <div class="form-group">
-                <label for="certifying_body">Certifying Body</label>
+                <label for="signs_of_readiness" class="control-label">Signs of Readiness:</label>
+                <textarea class="form-control" id="signs_of_readiness" name="signs_of_readiness" rows="6"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="certifying_body">Certifying Body:</label>
                 <select class="form-control" id="certifying_body" name="certifying_body">
                     <option value="Peak Pilates">Peak Pilates</option>
                     <option value="Stott">Stott</option>
@@ -69,8 +73,7 @@
                     <option value="Pilates Center of Boulder">Pilates Center of Boulder</option>
                 </select>
             </div>
-
-            <input type="submit" value="Submit Changes" />
+            <input class="btn btn-secondary" type="submit" value="Submit Changes" />
         </form>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
@@ -78,6 +81,7 @@
             crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
+    </div>
 </body>
 
 </html>

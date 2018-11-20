@@ -5,33 +5,78 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Guntur" rel="stylesheet">
     <title>Exercise Detail Page</title>
 </head>
 
 <body>
-    <h1>Exercise Details</h1>
-    <a href="/exercises">EXERCISES</a>
-    <h3>Name:
-        <%= exercisesList.name %>
-    </h3>
-    <br/>
-    <h2>Level:
-        <%= exercisesList.level %>
-    </h2>
-    <br>
-    <h2>Apparatus:
-        <%=exercisesList.apparatus%>
-    </h2>
-    <br/>
-    <h2>Description:
-        <%=exercisesList.description%>
-    </h2>
-    <br>
-    <h2>Certifying Body:
-        <%=exercisesList.certifying_body%>
-    </h2>
-    <br>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <a class="navbar-brand" href="/exercises">Pilates Exercises</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="/exercises">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+                <a class="nav-item nav-link" href="/exercises/new">Create</a>
+            </div>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-white my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="body">
+        <h1>
+            <b>Exercise Details</b>
+        </h1>
+
+        <h3>
+            <b>
+                <u>Name</u>:
+            </b>
+            <%= exercisesList.name %>
+        </h3>
+        <br/>
+        <h3>
+            <b>
+                <u>Level</u>:
+            </b>
+            <%= exercisesList.level %>
+        </h3>
+        <br>
+        <h3>
+            <b>
+                <u>Apparatus</u>:
+            </b>
+            <%=exercisesList.apparatus%>
+        </h3>
+        <br/>
+        <h3>
+            <b>
+                <u>Description</u>:
+            </b>
+            <%=exercisesList.description%>
+        </h3>
+        <br>
+        <h3>
+            <b>
+                <u>Signs of Readiness</u>:
+            </b>
+            <%=exercisesList.signs_of_readiness%>
+        </h3>
+        <br>
+        <h3>
+            <b>
+                <u>Certifying Body</u>:
+            </b>
+            <%=exercisesList.certifying_body%>
+        </h3>
+        <br>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"

@@ -20,6 +20,7 @@ router.post("/", (req, res) => {
         apparatus: req.body.apparatus,
         level: req.body.level,
         description: req.body.description,
+        signs_of_readiness: req.body.signs_of_readiness,
         certifying_body: req.body.certifying_body,
 
     }, (err, createdExercise) => {
@@ -28,7 +29,7 @@ router.post("/", (req, res) => {
             res.send(err)
         } else {
             console.log(createdExercise)
-            console.log(req.body.name, req.body.apparatus, req.body.level, req.body.description, req.body.certifying_body)
+            console.log(req.body.name, req.body.apparatus, req.body.level, req.body.description, req.body.signs_of_readiness, req.body.certifying_body)
             res.redirect("/exercises");
         }
     });
@@ -59,7 +60,7 @@ router.get("/:id/edit", async (req, res) => {
 });
 
 //SHOW route
-router.get("/:id/show", async (req, res) => {
+router.get("/:id", async (req, res) => {
     try {
         const foundExercise = await Exercises.findById(req.params.id);
         console.log(foundExercise + "this is foundExercise")
@@ -81,6 +82,7 @@ router.put("/:id", (req, res) => {
             apparatus: req.body.apparatus,
             level: req.body.level,
             description: req.body.description,
+            signs_of_readiness: req.body.signs_of_readiness,
             certifying_body: req.body.certifying_body
         },
         { new: true }, (err, updatedExercise) => {

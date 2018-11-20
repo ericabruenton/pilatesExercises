@@ -6,6 +6,7 @@ const exerciseSchema = mongoose.Schema({
     apparatus: String,
     level: String,
     description: String,
+    signs_of_readiness: String,
     certifying_body: String
 });
 

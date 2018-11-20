@@ -5,43 +5,76 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Guntur" rel="stylesheet">
     <title>All Exercises Page</title>
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <a class="navbar-brand" href="/exercises">Pilates Exercises</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="/exercises">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+                <a class="nav-item nav-link" href="/exercises/new">Create</a>
+            </div>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-white my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
     <div class="body">
-        <h1>Pilates Exercises</h1>
-        <nav>
-            <a href="/exercises/new">Create Exercise</a>
-        </nav>
         <div class="card w-50">
             <div class="card-body">
                 <p class="card-text">
                     <% for(let i = 0; i < exercisesList.length; i++){ %>
-                        Exercise Name:
+                        <b>
+                            <u> Name</u>:
+                        </b>
                         <a href="/exercises/<%=exercisesList[i].id%>">
                             <%=exercisesList[i].name%>
                         </a>
                         </br>
-                        Apparatus:
+                        <b>
+                            <u>Apparatus</u>:
+                        </b>
                         <%=exercisesList[i].apparatus%>
                             </br>
-                            Level:
+                            <b>
+                                <u>Level</u>:
+                            </b>
                             <%=exercisesList[i].level%>
                                 </br>
-                                Description:
+                                <b>
+                                    <u>Description</u>:
+                                </b>
                                 <%=exercisesList[i].description%>
                                     </br>
-                                    Certifying Body:
-                                    <%=exercisesList[i].certifying_body%>
+                                    <b>
+                                        <u>Signs of Readiness</u>:
+                                    </b>
+                                    <%=exercisesList[i].signs_of_readiness%>
+                                        </br>
+                                        <b>
+                                            <u>Certifying Body</u>:
+                                        </b>
+                                        <%=exercisesList[i].certifying_body%>
                 </p>
                 <a href="/exercises/<%=exercisesList[i].id%>/edit">
                     <button class="btn btn-secondary" type="submit">EDIT</button>
                 </a>
+
+                </br>
                 <form method="POST" action="/exercises/<%=exercisesList[i].id%>?_method=DELETE">
-                    <input class="btn btn-secondary" type="submit" value="DELETE" />
+                    <input class="btn btn-danger" type="submit" value="DELETE" />
                 </form>
+                </br>
                 <% } %>
             </div>
             </br>

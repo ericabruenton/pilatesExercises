@@ -1,5 +1,12 @@
 .body{
 	background-color: #C7E4D9;
 	color: black;
-	font-family: 'Alegreya Sans SC', sans-serif;
+	font-family: 'Hind Guntur', sans-serif;
+}
+
+.btn {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	text-align: center;
+	font-size: 15px;
 }
